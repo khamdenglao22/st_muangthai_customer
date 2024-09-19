@@ -1,0 +1,93 @@
+<div style="text-align: center;" *ngIf="!loading">
+  <h1>Loading...</h1>
+</div>
+
+<div class="main" *ngIf="dataProductDetail">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="">
+  <div class="main-left">
+    <img class="image-address" src="assets/images/product/image-product-detail-left.png" alt="image-service">
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service">
+    <div class="main-left-text">
+      <h5>{{dataProductDetail.p_name_la}}</h5>
+      <!-- <p>Sabai Family 99/20</p> -->
+    </div>
+  </div>
+
+
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ຜະລິດຕະພັນ</a></li>
+        <li><a>{{dataProductDetail.ProductCategorySub.ProductCategory.name_la}}</a></li>
+        <li><a
+            [routerLink]="['/product',dataProductDetail.ProductCategorySub.id]">{{dataProductDetail.ProductCategorySub.name_la}}</a>
+        </li>
+        <li><a>{{dataProductDetail.p_name_la}}</a></li>
+      </div>
+      <h2>{{dataProductDetail.p_name_la + " " +dataProductDetail.p_name_en}}</h2>
+      <div class="content">
+        <button (click)="scroll(info)" class="content-icon-call-center">
+          <img class="content-icon-call-center-image" src="assets/images/product/call-center.png" alt="icon">
+        </button>
+
+        <div class="content-product-detail">
+          <div class="product-section" *ngFor="let item of dataProductDetail.Sections">
+            <div class="product-preview" *ngIf="item.p_section_image">
+              <img class="product-preview-image" [src]="item.p_section_image" alt="">
+            </div>
+            <div class="product-section-header" *ngIf="item.p_section_name_la != ''">
+              <img class="product-section-header-img" src="assets/images/product/icon-success.svg" alt="product">
+              <h2 class="product-section-header-text">{{item.p_section_name_la}}</h2>
+            </div>
+            <p class="product-section-title" *ngIf="item.p_section_title_la != ''">
+              {{item.p_section_title_la}}
+            </p>
+            <div class="product-section-details" *ngIf="item.p_section_des != ''">
+              <div class="product-section-details-des" [innerHTML]="item.p_section_des"></div>
+            </div>
+
+            <div class="product-outline" *ngIf="item.p_section_outline"></div>
+          </div>
+
+          <div #info id="info" class="product-section-form">
+            <div class="product-section-form-header">
+              <p class="product-section-form-title">
+                ສອບຖາມເບ້ຍປະກັນ
+              </p>
+            </div>
+            <form class="content-product-form" (submit)="submit()" [formGroup]="form">
+              <div class="row">
+                <div class="input-group">
+                  <input type="text" formControlName="full_name" class="form-control" placeholder="ຊື່ ແລະ ນາມສະກຸນ">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-group">
+                  <input type="email" class="form-control" formControlName="email" placeholder="ອີເມວ">
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="phone" placeholder="ເບີ​ໂທລະ​ສັບ">
+                </div>
+              </div>
+              <div *ngIf="showButton"
+                style="display: flex; align-items: center; justify-content: center;margin-bottom: 20px;">
+                <re-captcha (resolved)="resolved($event)" siteKey={{sitekey}}>
+                </re-captcha>
+              </div>
+              <div class="form-btn">
+                <button type="submit" class="btn btn-submit" [disabled]="showButton">ຕົກລົງ</button>
+                <button type="button" (click)="clearForm()" class="btn btn-cancel">ຍົກເລີກ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="advert-all">
+  <img src="assets/images/image-advert-all.svg" alt="service-image">
+</div> -->
+<app-advert></app-advert>

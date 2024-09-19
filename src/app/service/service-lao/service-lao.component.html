@@ -1,0 +1,199 @@
+<div style="text-align: center" *ngIf="!loading">
+  <h1>Loading...</h1>
+</div>
+
+<div class="main" *ngIf="loading">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="" />
+
+  <div class="main-left">
+    <img class="image-address" src="assets/images/image-address-hospital.jpg" alt="image-service" />
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service" />
+    <div class="main-left-text service">
+      <h5>ລາຍຊື່ໂຮງໝໍ</h5>
+      <p>ເຕັມທີ່ກັບທຸກ Life Style ເອັສທີ-ເມືອງໄທ ປະກັນໄພ ພ້ອມໃຫ້ບໍລິການ</p>
+    </div>
+  </div>
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ບໍລິການ</a></li>
+        <li><a>ໂຮງໝໍ</a></li>
+        <li><a>ໂຮງໝໍໃນລາວ</a></li>
+      </div>
+      <h2>ໂຮງໝໍໃນລາວ</h2>
+      <div class="content">
+        <div class="content-service-body">
+          <div class="content-img">
+            <img [src]="imageMapUrl" alt="service-image" />
+          </div>
+          <div class="content-province">
+            <div class="content-province-lists">
+              <div class="province-list-item" *ngFor="let item of dataProvince">
+                <a class="province-list-item-product {{
+                    activeItem === item.prov_cd ? 'active' : ''
+                  }}" (click)="loadLaoByProv(item.prov_cd)">
+                  <img src="assets/icons/icon-address.svg" alt="service-image" />
+                  <p>{{ item.prov_name_la }}</p>
+                </a>
+              </div>
+            </div>
+
+            <div class="content-province-detail">
+              <div class="province-detail-item" *ngFor="let item of dataLaoByProvCountry">
+                <h4>
+                  {{ item.location_name_la + " " + item.location_name_en }}
+                </h4>
+                <div class="province-detail-item-address">
+                  <img src="assets/icons/icon-home-service-page.svg" alt="service-image" />
+                  <p>
+                    {{ item.Village == null ? "" : "ບ້ານ" }}
+                    {{
+                    item.Village == null
+                    ? ""
+                    : item.Village.vill_name_la + ","
+                    }}
+                    {{ item.District == null ? "" : "ເມືອງ" }}
+                    {{
+                    item.District == null
+                    ? ""
+                    : item.District.dist_name_la + ","
+                    }}
+                    {{ item.Province == null ? "" : "ແຂວງ" }}
+                    {{
+                    item.Province == null ? "" : item.Province.prov_name_la
+                    }}
+                  </p>
+                </div>
+                <div class="province-detail-item-address">
+                  <img src="assets/icons/icon-phone-smal-service-page.svg" alt="service-image" />
+                  <p>{{ item.tel }}{{item.phone == null || item.phone == '' ? "":", " + item.phone}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-service-footer">
+          <div class="content-service-footer-header">
+            <div class="content-service-footer-header-cards">
+              <div class="content-service-footer-header-card">
+                <div class="content-service-footer-header-card-title">
+                  <h3>ໂຮງໝໍທີ່ສາມາດໃຊ້ທັງ OPD & IPD ແລະ ກວດສຸຂະພາບກ່ອນປະກັນ</h3>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 1</span>
+                  <p>Alliance International Medical Center (AIMC)</p>
+                </div>
+
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 2</span>
+                  <p>Lao-Asean Hospital</p>
+                </div>
+
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 3</span>
+                  <p>Lao-Viet Clinic</p>
+                </div>
+
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 4</span>
+                  <p>Hanoi-Vientiane Hospital (HNVC)</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 5</span>
+                  <p>Kasemrad International Hospital Vientiane</p>
+                </div>
+              </div>
+              <div class="content-service-footer-header-card">
+                <div class="content-service-footer-header-card-title">
+                  <h3>
+                    ໂຮງໝໍທີ່ສາມາດໃຊ້ໄດ້ສະເພາະ IPD ແລະການກວດສຸຂະພາບກ່ອນປະກັນ
+                  </h3>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 1</span>
+                  <p>Luckxay Hospital</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 2</span>
+                  <p>Saimangkon International Hospital</p>
+                </div>
+              </div>
+              <div class="content-service-footer-header-card">
+                <div class="content-service-footer-header-card-title">
+                  <h3>ໂຮງໝໍທີ່ສາມາດໃຊ້ໄດ້ສະເພາະ OPD ແລະ ກວດສຸຂະພາບກ່ອນປະກັນ</h3>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 1</span>
+                  <p>Luckxay Hospital</p>
+                </div>
+              </div>
+            </div>
+            <div class="content-service-footer-header-cards-right">
+              <div class="content-service-footer-header-card-right">
+                <div class="content-service-footer-header-card-title-right">
+                  <h3>ໂຮງໝໍທີ່ສາມາດໃຊ້ກວດສຸຂະພາບຍ່າງດຽວ</h3>
+                  <p>
+                    (ທຸກຄັ້ງທີ່ໄປກວດຕ້ອງແຈ້ງຕົວແທນກ່ອນເພື່ອປະສານງານໂຮງໝໍເພື່ອເອົາລູກຄ້າມາກວດ)
+                  </p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 1</span>
+                  <p>International Hi Tech Poly Clinic (HPC)</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 2</span>
+                  <p>International Medical Diagnostic Center (IMDC)</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 3</span>
+                  <p>Phakan's Clinic</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 4</span>
+                  <p>Savanh-Hanoi Hospital</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 5</span>
+                  <p>Bolikhamxay Provincial Hospital</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 6</span>
+                  <p>Dr. Amphon Sedabouth Clinic</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 7</span>
+                  <p>Buavanh Clinic</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 8</span>
+                  <p>Muang Ngern Clinic (Dr.Son)</p>
+                </div>
+                <div class="content-service-footer-header-card-body">
+                  <span>ໂຮງໝໍໃນລາວ 9</span>
+                  <p>Medicare International Clinic</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <h5>ໝາຍເຫດ: ໂຮງໝໍທີ່ຂຶ້ນກັບບໍລິສັດ ທ່ານພຽງແຕ່ສາມາດໄດ້ຮັບການປິ່ນປົວສໍາລັບ IPD
+            ໂດຍການນໍາເອົາແບບຟອມເພື່ອຮ້ອງຂໍກັບບໍລິສັດ</h5> -->
+          <div class="content-service-footer-end" style="margin-top: 30px">
+            <img src="assets/images/image-logo-service-lao-viet.svg" alt="image-service-logo" />
+            <img src="assets/images/image-logo-service-ha-noi.svg" alt="image-service-logo" />
+            <img src="assets/images/image-logo-service-kih.svg" alt="image-service-logo" />
+            <img src="assets/images/image-logo-service-alliance.svg" alt="image-service-logo" />
+            <img src="assets/images/image-logo-service-vetsaphong.svg" alt="image-service-logo" />
+            <img src="assets/images/image-logo-service-hospital.svg" alt="image-service-logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="advert-all">
+  <img src="assets/images/image-advert-all.svg" alt="service-image">
+</div> -->
+<app-advert></app-advert>

@@ -1,0 +1,114 @@
+<div class="main">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="" />
+  <div class="main-left">
+    <img class="image-address" src="assets/images/job/image-left-job-page.png" alt="image-service" />
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service" />
+    <div class="main-left-text vision">
+      <h5>ສະໝັກວຽກ</h5>
+    </div>
+  </div>
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ຮ່ວມງານກັບເຮົາ</a></li>
+      </div>
+      <h2>ຮ່ວມງານກັບເຮົາ</h2>
+      <div class="content">
+        <div class="content-job">
+          <p>
+            ມາຮ່ວມເປັນສ່ວນໜຶ່ງກັບຄອບຄົວ ເອັສທີ - ເມືອງໄທ ປະກັນໄພ
+            ພ້ອມເຕີບໂຕກ້າວໜ້າໄປດ້ວຍກັນ ມາສະໝັກງານກັບພວກເຮົາໄດ້
+          </p>
+
+          <div class="content-job-lists staff-lists">
+            <li *ngFor="let item of dataJob" (click)="clickImg(item.image)" style="cursor: pointer">
+              <span>{{ item.position_name_la }}</span> ({{
+              item.depart_name_la
+              }}) {{ !item.Province ? "" : "ປະຈຳແຂວງ" }}
+              {{ item.Province ? item.Province.prov_name_la : "" }}
+              {{ item.amount }} ຕຳແໜ່ງ
+            </li>
+          </div>
+
+          <div class="content-job-lists img-staff-lists">
+            <div class="arrow-back-staff" (click)="backStaffList()">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+              </svg>
+              <p>ກັບຄືນ</p>
+            </div>
+
+            <div style="margin-top: 30px">
+              <img class="img-test-click" src="{{ this.ImgName }}" alt="" style="width: 100%" />
+            </div>
+          </div>
+
+          <a [href]="dataFormWork" class="download-file-pdf" target="_blank">
+            <p>ດາວໂຫລດແບບຟອມສະໝັກ</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M256 464a208 208 0 1 1 0-416 208 208 0 1 1 0 416zM256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6c4.5-4.2 7.1-10.1 7.1-16.3c0-12.3-10-22.3-22.3-22.3H304V160c0-17.7-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32v96H150.3C138 256 128 266 128 278.3c0 6.2 2.6 12.1 7.1 16.3l107.1 99.9c3.8 3.5 8.7 5.5 13.8 5.5s10.1-2 13.8-5.5l107.1-99.9z" />
+            </svg>
+          </a>
+
+          <p>ສົນໃຈສະໝັກວຽກກັບພວກເຮົາ ກະລຸນາຕື່ມແບບຟອມລຸ່ມນີ້ ເພື່ອສະໝັກວຽກ</p>
+          <form class="content-job-form" (submit)="submit()" [formGroup]="form">
+            <div class="row">
+              <div class="input-group custom-select">
+                <select class="form-control" formControlName="work_id" placeholder="ກະລຸນາເລືອກຕຳແໜ່ງ">
+                  <option value="">---ກະລຸນາເລືອກຕຳແໜ່ງ---</option>
+                  <option *ngFor="let item of dataJob" [value]="item.id">
+                    {{ item.position_name_la }}
+                  </option>
+                </select>
+                <img src="assets/icons/icon-down.svg" alt="icon" class="icon-down" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-group">
+                <input type="text" formControlName="full_name" class="form-control" placeholder="ຊື່ ແລະ ນາມສະກຸນ" />
+              </div>
+              <div class="input-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="ອີເມວ" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-group custom-file">
+                <div class="choose-icon">
+                  <img src="assets/icons/icon-choose-file.svg" alt="choose" />
+                  <label>{{ fileName !='' ? fileName : "ແນບໄຟລ໌" }}</label>
+                </div>
+                <input type="file" class="form-control" (change)="onLogoChange($event)" *ngIf="showInputFile" />
+                <button class="btn-choose-file">ເລືອກໄຟລ໌</button>
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="phone" placeholder="ເບີ​ໂທລະ​ສັບ" />
+              </div>
+            </div>
+
+            <div *ngIf="showButton" style="display: flex; align-items: center; justify-content: center;">
+              <re-captcha (resolved)="resolved($event)" siteKey={{sitekey}}>
+              </re-captcha>
+            </div>
+
+            <div class="form-btn">
+              <button type="submit" class="btn btn-submit" [disabled]="showButton">ສະໝັກວຽກ</button>
+              <button type="button" (click)="clearForm()" class="btn btn-cancel">
+                ຍົກເລີກ
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="advert-all">
+  <img src="assets/images/image-advert-all.svg" alt="service-image">
+</div> -->
+<app-advert></app-advert>

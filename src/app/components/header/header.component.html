@@ -1,0 +1,476 @@
+<header>
+  <div class="header-sticky">
+    <div class="logo">
+      <img src="assets/images/left-header-logo.svg" alt="logo" />
+      <!-- <img src="assets/images/left-header-logo (1).png" alt="logo" /> -->
+    </div>
+
+    <div class="nav">
+      <div class="navs">
+        <ul class="nav-lists">
+          <li>
+            <a
+              (click)="menuActive(1)"
+              routerLink="/"
+              routerLinkActive="active"
+              class="{{ menuId == 1 ? 'active' : '' }}"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >ໜ້າຫຼັກ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 2 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownProduct(2)"
+              routerLink="/product"
+              routerLinkActive="activeRouterLink"
+              >ຜະລິດຕະພັນ
+              <img
+                _ngcontent-ng-c2742671966=""
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 3 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownService(3)"
+              routerLink="/service"
+              routerLinkActive="activeRouterLink"
+              >ບໍລິການ
+              <img
+                _ngcontent-ng-c2742671966=""
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 4 ? 'active' : '' }}"
+              (click)="menuActive(4)"
+              routerLink="/news-activities"
+              routerLinkActive="active"
+              >ຂ່າວ ແລະ ກິດຈະກຳ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 5 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownAbout(5)"
+              routerLink="/about"
+              routerLinkActive="activeRouterLink"
+              >ກ່ຽວກັບເຮົາ
+              <img
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 6 ? 'active' : '' }}"
+              (click)="menuActive(6)"
+              routerLink="/contact"
+              routerLinkActive="active"
+              >ຕິດ​ຕໍ່​ພວກ​ເຮົາ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 7 ? 'active' : '' }}"
+              (click)="menuActive(7)"
+              routerLink="/job"
+              routerLinkActive="active"
+              >ຮ່ວມງານກັບເຮົາ</a
+            >
+          </li>
+        </ul>
+        <div class="nav-right">
+          <div class="right-icons">
+            <a href="tel:+856 21 253159"
+              ><img src="assets/images/phoneicon.svg" alt=""
+            /></a>
+            <a href="https://www.facebook.com/STMTI" target="_blank"
+              ><img src="assets/images/fb icon.svg" alt=""
+            /></a>
+            <a href="mailto:info@stmuangthai.com"
+              ><img src="assets/images/message icon.svg" alt=""
+            /></a>
+          </div>
+          <div class="right-lang">
+            <a href="#" class="active">LA</a>
+            <a href="#">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="nav-sub {{showDropdownProduct ? 'active' : ''}}" >
+
+    <div class="nav" style="padding: 0 25px; background: white;" >
+      <div class="navs">
+    <ul  class="nav-lists"><li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ໜ້າຫຼັກ</a></li>
+      <li ><a   routerlink="/" ng-reflect-router-link="/" href="/" class=""> <span style="opacity: 0; z-index: -1">ຜະລິດຕະພັນ</span>
+
+        <div style="position: absolute;display: flex;
+        width: max-content;
+        left: 0;
+        top: 0;" >
+          <li *ngFor="let cate of dataProductCategory">
+            <a style="color: #0F4E80" (click)="clickShowDropdownProductDetail(cate.id)">{{cate.name_la}}</a>
+          </li>
+        </div>
+      </a></li>
+      <li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ບໍລິການ</a></li>
+      <li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ຂ່າວ ແລະ ກິດຈະກຳ</a></li>
+      <li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ກ່ຽວກັບເຮົາ</a></li>
+      <li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ຕິດ​ຕໍ່​​ເຮົາ</a></li>
+      <li style="opacity: 0; z-index: -1"><a   routerlink="/" ng-reflect-router-link="/" href="/" class="">ຊອກວຽກ</a></li>
+    </ul>
+      </div>
+    </div>
+    </div> -->
+
+    <!-- product sub menu ------------------------------------- -->
+    <div class="nav-sub {{ showDropdownProduct ? 'active' : '' }}">
+      <div class="nav-subs">
+        <ul>
+          <li *ngFor="let cate of dataProductCategory">
+            <a (click)="clickShowDropdownProductDetail(cate.id)"
+              >{{ cate.name_la }}
+              <img
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <!-- <li><a (click)="clickShowDropdownProductDetail(1)">ປະກັນຊີວິດ</a></li>
+          <li><a (click)="clickShowDropdownProductDetail(2)">ປະກັນທົ່ວໄປ</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div
+      class="nav-sub detail  {{
+        showDropdownProductDetail && showDropdownProduct ? 'active active_{{ menuSubId }} ' : ''
+      }}"
+    >
+      <div class="nav-subs">
+        <ul>
+          <li *ngFor="let item of dataProductSubCategory">
+            <a
+              [routerLink]="['/product', item.id]"
+              (click)="clickShowDropdownClose()"
+              >{{ item.name_la }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- service sub menu -------------------------------------- -->
+    <div class="nav-sub-service {{ showDropdownServices ? 'active' : '' }}">
+      <div class="nav-subs">
+        <ul>
+          <li *ngFor="let item of dataServiceType">
+            <a (click)="clickShowDropdownServiceDetail(item.id)"
+              >{{ item.service_type_la }}
+
+              <img
+                *ngIf="item.service_type_la != 'ອູ່ສ້ອມແປງ'"
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <!-- <li><a href="#">ອູ່ສ້ອມແປງ</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div
+      class="nav-sub-service detail {{
+        showDropdownServicesDetail && showDropdownServices ? 'active' : ''
+      }}"
+    >
+      <div class="nav-subs">
+        <ul>
+          <li *ngFor="let item of dataServiceCountry">
+            <a
+              (click)="clickShowDropdownServiceRouter(item.id)"
+              (click)="clickShowDropdownClose()"
+              >{{ item.country_name_la }}</a
+            >
+          </li>
+          <!-- <li><a [routerLink]="'/service'">ໂຮງໝໍໃນໄທ</a></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- About sub menu -------------------------------------- -->
+    <div class="nav-sub-about {{ showDropdownAbout ? 'active' : '' }}">
+      <div class="nav-subs">
+        <ul>
+          <li>
+            <a
+              [routerLink]="'/about/history'"
+              (click)="clickShowDropdownClose()"
+              >ປະຫວັດຄວາມເປັນມາ</a
+            >
+          </li>
+          <li>
+            <a [routerLink]="'/about/vision'" (click)="clickShowDropdownClose()"
+              >ວິໄສທັດ</a
+            >
+          </li>
+          <li>
+            <a
+              [routerLink]="'/about/structure'"
+              (click)="clickShowDropdownClose()"
+              >ແຜນຜັງໂຄງຮ່າງ</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-sticky res-head">
+    <div class="nav">
+      <div class="flex-logo-head-res">
+        <div class="logo">
+          <img src="assets/images/left-header-logo.svg" alt="logo" />
+        </div>
+        <div class="bars-svg" (click)="activeMenuRes()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class="openBars"
+          >
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            class="closeBars"
+          >
+            <path
+              d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="navs res-title">
+        <ul class="nav-lists">
+          <li>
+            <a
+              (click)="menuActive(1)"
+              routerLink="/"
+              class="{{ menuId == 1 ? 'active' : '' }}"
+              >ໜ້າຫຼັກ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 2_2 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownProduct(2_2)"
+              >ຜະລິດຕະພັນ
+              <img
+                _ngcontent-ng-c2742671966=""
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <!-- product sub menu ------------------------------------- -->
+          <div class="nav-sub {{ showDropdownProduct ? 'active' : '' }}">
+            <div class="nav-subs">
+              <ul>
+                <li *ngFor="let cate of dataProductCategory">
+                  <a (click)="clickShowDropdownProductDetail(cate.id)"
+                    >{{ cate.name_la }}
+                    <img
+                      _ngcontent-ng-c2742671966=""
+                      src="assets/images/icon-arow-right.svg"
+                      alt=""
+                      class="arrow-menu"
+                    />
+                  </a>
+                </li>
+                <!-- <li><a (click)="clickShowDropdownProductDetail(1)">ປະກັນຊີວິດ</a></li>
+                  <li><a (click)="clickShowDropdownProductDetail(2)">ປະກັນທົ່ວໄປ</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <div
+            class="nav-sub detail {{
+              showDropdownProductDetail && showDropdownProduct ? 'active' : ''
+            }}"
+          >
+            <div class="nav-subs">
+              <ul>
+                <li *ngFor="let item of dataProductSubCategory">
+                  <a
+                    [routerLink]="['/product', item.id]"
+                    (click)="clickShowDropdownClose()"
+                    >{{ item.name_la }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- end product sub menu -->
+
+          <li>
+            <a
+              class="{{ menuId == 3_2 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownService(3_2)"
+              >ບໍລິການ
+              <img
+                _ngcontent-ng-c2742671966=""
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+              />
+            </a>
+          </li>
+          <!-- service sub menu -------------------------------------- -->
+          <div
+            class="nav-sub-service {{ showDropdownServices ? 'active' : '' }}"
+          >
+            <div class="nav-subs">
+              <ul>
+                <li *ngFor="let item of dataServiceType">
+                  <a (click)="clickShowDropdownServiceDetail(item.id)"
+                    >{{ item.service_type_la }}
+
+                    <img
+                      *ngIf="item.service_type_la != 'ອູ່ສ້ອມແປງ'"
+                      src="assets/images/icon-arow-right.svg"
+                      alt=""
+                      class="arrow-menu"
+                    />
+                  </a>
+                </li>
+                <!-- <li><a href="#">ອູ່ສ້ອມແປງ</a></li> -->
+              </ul>
+            </div>
+          </div>
+          <div
+            class="nav-sub-service detail {{
+              showDropdownServicesDetail && showDropdownServices ? 'active' : ''
+            }}"
+          >
+            <div class="nav-subs">
+              <ul>
+                <li *ngFor="let item of dataServiceCountry">
+                  <a
+                    (click)="clickShowDropdownServiceRouter(item.id)"
+                    (click)="clickShowDropdownClose()"
+                    >{{ item.country_name_la }}</a
+                  >
+                </li>
+                <!-- <li><a [routerLink]="'/service'">ໂຮງໝໍໃນໄທ</a></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <li>
+            <a
+              class="{{ menuId == 4 ? 'active' : '' }}"
+              (click)="menuActive(4)"
+              routerLink="/news-activities"
+              >ຂ່າວ ແລະ ກິດຈະກຳ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 5_2 ? 'titleAc active' : '' }}"
+              (click)="clickShowDropdownAbout(5_2)"
+              >ກ່ຽວກັບເຮົາ
+              <img
+                src="assets/images/icon-arow-right.svg"
+                alt=""
+                class="arrow-menu"
+            /></a>
+          </li>
+
+          <!-- About sub menu -------------------------------------- -->
+          <div class="nav-sub-about {{ showDropdownAbout ? 'active' : '' }}">
+            <div class="nav-subs">
+              <ul>
+                <li>
+                  <a
+                    [routerLink]="'/about/history'"
+                    (click)="clickShowDropdownClose()"
+                    >ປະຫວັດຄວາມເປັນມາ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="'/about/vision'"
+                    (click)="clickShowDropdownClose()"
+                    >ວິໄສທັດ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="'/about/structure'"
+                    (click)="clickShowDropdownClose()"
+                    >ແຜນຜັງໂຄງຮ່າງ</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <li>
+            <a
+              class="{{ menuId == 6 ? 'active' : '' }}"
+              (click)="menuActive(6)"
+              routerLink="/contact"
+              >ຕິດ​ຕໍ່​ພວກ​ເຮົາ</a
+            >
+          </li>
+          <li>
+            <a
+              class="{{ menuId == 7 ? 'active' : '' }}"
+              (click)="menuActive(7)"
+              routerLink="/job"
+              >ຮ່ວມງານກັບເຮົາ</a
+            >
+          </li>
+        </ul>
+        <div class="nav-right">
+          <div class="right-icons">
+            <a href="tel:+856 21 253159"
+              ><img src="assets/images/phoneicon.svg" alt=""
+            /></a>
+            <a href="https://www.facebook.com/STMTI" target="_blank"
+              ><img src="assets/images/fb icon.svg" alt=""
+            /></a>
+            <a href="mailto:info@stmuangthai.com"
+              ><img src="assets/images/message icon.svg" alt=""
+            /></a>
+          </div>
+          <div class="right-lang">
+            <a href="#" class="active">LA</a>
+            <a href="#">EN</a>
+          </div>
+        </div>
+        <div class="res-right-bg-nav" (click)="bgCloseMenu()"></div>
+      </div>
+    </div>
+  </div>
+</header>

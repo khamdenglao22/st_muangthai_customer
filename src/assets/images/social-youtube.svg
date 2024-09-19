@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="social-youtube" transform="translate(0.397)">
+    <circle id="Ellipse_301" data-name="Ellipse 301" cx="17.5" cy="17.5" r="17.5" transform="translate(-0.397)" fill="#e50000"/>
+    <g id="Group_80" data-name="Group 80" transform="translate(7.111 10.241)">
+      <g id="you" transform="translate(0 0)">
+        <g id="youtube" transform="translate(0 0)">
+          <path id="Subtraction_8" data-name="Subtraction 8" d="M10.439,14.619c-.065,0-6.538-.005-8.169-.448a2.616,2.616,0,0,1-1.84-1.84A27.576,27.576,0,0,1,0,7.309,27.678,27.678,0,0,1,.43,2.288,2.678,2.678,0,0,1,2.27.43C3.885,0,10.374,0,10.439,0s6.554.005,8.169.447a2.614,2.614,0,0,1,1.84,1.841,26.425,26.425,0,0,1,.43,5.038,27.733,27.733,0,0,1-.43,5.022,2.618,2.618,0,0,1-1.841,1.84C16.993,14.614,10.5,14.619,10.439,14.619ZM8.359,4.18v6.26l5.435-3.13L8.359,4.18Z" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

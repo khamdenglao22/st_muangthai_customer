@@ -1,0 +1,33 @@
+.content{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  .content-about{
+    overflow: hidden;
+  }
+
+}
+.content-about-structure{
+  display: flex;
+
+}
+.name-about-structure{
+  text-align: center;
+    background: rgb(235, 5, 140);
+    color: white;
+    padding: 10px;
+    height: 100%;
+
+    .name{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .position{
+      font-size: 17px;
+      font-weight: bold;
+    }
+    .responsible{
+      font-size: 14px;
+    }
+}

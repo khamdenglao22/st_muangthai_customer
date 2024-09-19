@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" viewBox="0 0 65 65">
+  <defs>
+    <filter id="Ellipse_10" x="0" y="0" width="65" height="65" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="messager-facebook" transform="translate(18.082 15.334)">
+    <g transform="matrix(1, 0, 0, 1, -18.08, -15.33)" filter="url(#Ellipse_10)">
+      <circle id="Ellipse_10-2" data-name="Ellipse 10" cx="23.5" cy="23.5" r="23.5" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <path id="Path_2104" data-name="Path 2104" d="M14.334,0A14.058,14.058,0,0,0,0,13.737,13.475,13.475,0,0,0,4.78,23.96v4.108a.6.6,0,0,0,.914.506L9.022,26.5a14.787,14.787,0,0,0,5.312.976A14.058,14.058,0,0,0,28.665,13.737,14.058,14.058,0,0,0,14.334,0Z" transform="translate(-0.003 0)" fill="#2196f3"/>
+    <path id="Path_2105" data-name="Path 2105" d="M28.325,18.908a.6.6,0,0,0-.764-.167l-6.21,3.386-3.863-3.313a.6.6,0,0,0-.811.031L9.51,26.01a.6.6,0,0,0,.708.946l6.21-3.386L20.3,26.884a.6.6,0,0,0,.811-.031l7.166-7.166A.6.6,0,0,0,28.325,18.908Z" transform="translate(-4.559 -9.112)" fill="#fafafa"/>
+  </g>
+</svg>

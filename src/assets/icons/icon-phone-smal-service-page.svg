@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="icon-phone-smal-service-page" transform="translate(0 -0.332)">
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="12.5" cy="12.5" r="12.5" transform="translate(0 0.332)" fill="#eb048c"/>
+    <g id="phone" transform="translate(6.212 6.199)">
+      <g id="Group_6" data-name="Group 6" transform="translate(0 0)">
+        <path id="Path_203" data-name="Path 203" d="M13.03,9.434,11.236,7.64a1.193,1.193,0,0,0-1.986.448,1.221,1.221,0,0,1-1.409.769A5.532,5.532,0,0,1,4.509,5.526a1.161,1.161,0,0,1,.769-1.409A1.193,1.193,0,0,0,5.726,2.13L3.933.336a1.28,1.28,0,0,0-1.73,0L.986,1.554C-.232,2.835,1.114,6.23,4.125,9.241s6.406,4.42,7.688,3.139l1.217-1.217A1.279,1.279,0,0,0,13.03,9.434Z" transform="translate(-0.539 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

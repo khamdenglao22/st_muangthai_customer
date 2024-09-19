@@ -1,0 +1,30 @@
+<div class="main">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="" />
+  <div class="main-right about-structure">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ກ່ຽວ​ກັບ​ເຮົາ​</a></li>
+        <li><a>ແຜນຜັງໂຄງຮ່າງ</a></li>
+      </div>
+      <h2>ແຜນຜັງໂຄງຮ່າງ</h2>
+      <div class="content">
+        <div class="content-about" *ngFor="let item of data">
+          <div class="content-about-structure">
+            <img
+              class="content-about-structure-image"
+              src="{{ item.image }}"
+              alt="image-structure"
+            />
+          </div>
+          <!-- <div class="name-about-structure">
+            <p class="name">{{ item.full_name_la }}</p>
+            <p class="position">{{ item.position_la }}</p>
+            <p class="responsible">{{ item.responsible_la }}</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

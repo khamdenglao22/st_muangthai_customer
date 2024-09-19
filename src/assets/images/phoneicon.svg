@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="phoneicon" transform="translate(-0.453 -0.093)">
+    <rect id="Rectangle_10" data-name="Rectangle 10" width="35" height="35" rx="17.5" transform="translate(0.453 0.093)" fill="#fff"/>
+    <g id="Group_5" data-name="Group 5" transform="translate(10.946 7.069)">
+      <path id="Exclusion_2" data-name="Exclusion 2" d="M11.294,21.048H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0h9.293a2,2,0,0,1,2,2V19.049A2,2,0,0,1,11.294,21.048Zm-4.647-3.6a1.108,1.108,0,1,0,1.108,1.108A1.109,1.109,0,0,0,6.647,17.448ZM3.216,3.324a1,1,0,0,0-1,1v10.74a1,1,0,0,0,1,1h6.863a1,1,0,0,0,1-1V4.324a1,1,0,0,0-1-1Z" transform="translate(0 0)" fill="#0f4e80"/>
+    </g>
+  </g>
+</svg>

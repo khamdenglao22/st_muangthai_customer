@@ -1,0 +1,84 @@
+<div style="text-align: center;" *ngIf="!loading">
+  <h1>Loading...</h1>
+</div>
+
+<div class="main" *ngIf="loading">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="">
+  <div class="main-left">
+    <img class="image-address" src="assets/images/image-address-hospital.jpg" alt="image-service">
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service">
+    <div class="main-left-text service">
+      <h5>ລາຍຊື່ໂຮງໝໍ</h5>
+      <p>ເຕັມທີ່ກັບທຸກ Life Style
+        ເອັສທີ-ເມືອງໄທ ປະກັນໄພ
+        ພ້ອມໃຫ້ບໍລິການ</p>
+    </div>
+  </div>
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ບໍລິການ</a></li>
+        <li><a>ໂຮງໝໍ</a></li>
+        <li><a>ໂຮງໝໍໃນໄທ</a></li>
+      </div>
+      <h2>ໂຮງໝໍໃນໄທ</h2>
+      <div class="content">
+        <div class="content-service-body">
+          <div class="content-img">
+            <img [src]="imageMapUrl" alt="service-image">
+          </div>
+          <div class="content-province">
+            <div class="content-province-lists">
+              <div class="province-list-item" *ngFor="let item of dataSection">
+                <a class="province-list-item-product {{activeItem === item.id ? 'active' : ''}}"
+                  (click)="loadThaiBySection(item.id)">
+                  <img src="assets/icons/icon-address.svg" alt="service-image">
+                  <p>{{item.section_name_la}}</p>
+                </a>
+              </div>
+            </div>
+            <div class="content-province-detail">
+              <div class="province-detail-item" *ngFor="let item of dataLaoByProvCountry">
+                <h4>{{item.location_name_la}}</h4>
+                <div class="province-detail-item-address">
+                  <img src="assets/icons/icon-home-service-page.svg" alt="service-image">
+                  <p>
+                    <!-- {{item.Village == null ? "" :"ບ້ານ"}} -->
+                    {{item.Village == null ? "" :item.Village.vill_name_la +","}}
+                    <!-- {{item.District == null ? "" :"ເມືອງ"}} -->
+                    {{item.District == null ? "" :item.District.dist_name_la + ","}}
+                    <!-- {{item.Province == null ? "" :"ແຂວງ"}} -->
+                    {{item.Province == null ? "" : item.Province.prov_name_la}}
+                  </p>
+                </div>
+                <div class="province-detail-item-address">
+                  <img src="assets/icons/icon-phone-smal-service-page.svg" alt="service-image">
+                  <p>{{item.tel}} {{item.phone == null || item.phone == '' ? "":"," + item.phone}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-service-footer">
+          <div class="content-service-footer-end">
+            <img src="assets/images/image-logo-service-lao-viet.svg" alt="image-service-logo">
+            <img src="assets/images/image-logo-service-ha-noi.svg" alt="image-service-logo">
+            <img src="assets/images/image-logo-service-kih.svg" alt="image-service-logo">
+            <img src="assets/images/image-logo-service-alliance.svg" alt="image-service-logo">
+            <img src="assets/images/image-logo-service-vetsaphong.svg" alt="image-service-logo">
+            <img src="assets/images/image-logo-service-hospital.svg" alt="image-service-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="advert-all">
+  <img src="assets/images/image-advert-all.svg" alt="service-image">
+</div> -->
+
+
+<app-advert></app-advert>

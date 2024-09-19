@@ -1,0 +1,86 @@
+<div style="text-align: center;" *ngIf="!loading">
+  <h1>Loading...</h1>
+</div>
+
+<div class="main" *ngIf="loading">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="">
+
+  <div class="main-left">
+    <img class="image-address" src="assets/images/news/image-news-detail.jpg" alt="image-service">
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service">
+    <div class="main-left-text news">
+      <h5>ຂ່າວ & ກິດຈະກຳ</h5>
+      <p>ຍິ້ມໂລດ ກັບທຸກ
+        Life Style ໄດ້ທີ່ນີ້</p>
+    </div>
+  </div>
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a routerLink="/news-activities">ຂ່າວ & ກິດ​ຈະ​ກໍາ​</a></li>
+        <li><a>{{dataNewsDetail.title_la}}​</a></li>
+      </div>
+      <div class="content">
+        <div class="content-news">
+          <div class="content-news-detail">
+
+            <owl-carousel-o *ngIf="dataNewsDetail.gallery.length != 0" (change)="getData($event)"
+              [options]="customOptions">
+              <ng-container *ngFor="let item of dataNewsDetail.gallery; let i= index">
+                <ng-template carouselSlide [id]="item.id">
+                  <img class="content-news-detail-image" (click)="onPreviewImage(i)" [src]="item.image"
+                    alt="image-news">
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+
+            <owl-carousel-o *ngIf="dataNewsDetail.gallery.length == 0" [options]="customOptions">
+              <ng-container>
+                <ng-template carouselSlide>
+                  <img class="content-news-detail-image" [src]="dataNewsDetail.image" alt="image-news">
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+
+            <button class="content-news-detail-btn" (click)="onPreviewVideo()">
+              <img src="assets/images/news/image-play-video-detail.svg" alt="image-news-detail">
+              <p>ວິດີໂອ</p>
+            </button>
+            <h3>{{dataNewsDetail.title_la}}</h3>
+            <div class="news-description" [innerHTML]="dataNewsDetail.description_la">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showMask" class="lightbox">
+  <span *ngIf="showCount" class="count">{{currentIndex + 1}}/{{totalImageCount}}</span>
+  <div *ngIf="previewImage" class="lightbox-img">
+    <button *ngIf="previewImage" class="close-btn" (click)="onClosePreview()">
+      <img src="assets/icons/icon-close.svg" alt="image-news-detail">
+    </button>
+    <img [src]="currentLightboxImage" alt="image-lightbox">
+    <button *ngIf="controls" class="btn-lightbox-carousel btn-prev owl-prev" (click)="prev()">
+      <img src="assets/icons/icon-prev.svg" alt="image-news-detail">
+    </button>
+    <button *ngIf="controls" class="btn-lightbox-carousel btn-next owl-next" (click)="next()">
+      <img src="assets/icons/icon-next.svg" alt="image-news-detail">
+    </button>
+  </div>
+</div>
+
+<div *ngIf="showMaskVideo" class="lightbox">
+  <div class="lightbox-img">
+    <button class="close-btn" (click)="onClosePreview()">
+      <img src="assets/icons/icon-close.svg" alt="image-news-detail">
+    </button>
+    <video controls>
+      <source [src]="previewVideoUrl" type="video/mp4">
+    </video>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input-group.custom-select{
+  position: relative;
+  .icon-down{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+

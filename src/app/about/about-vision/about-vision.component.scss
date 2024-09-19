@@ -1,0 +1,23 @@
+.content-about-text {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 20px;
+  color: #EB058C;
+}
+
+// @media only screen and (max-width: 600px){
+//   .content-about-text{
+//     font-size: 25px
+//   }
+// }
+
+@media only screen and (min-width: 1600px){
+  .content-about-text{
+    font-size: 25px
+  }
+}
+@media only screen and (max-width: 1200px){
+  .content-about-text{
+    font-size: 18px
+  }
+}

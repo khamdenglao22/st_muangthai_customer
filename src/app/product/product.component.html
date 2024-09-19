@@ -1,0 +1,49 @@
+<div class="main" *ngIf="this.dataProduct.length != 0">
+  <app-messenger></app-messenger>
+  <img class="bg-water" src="assets/images/bg-water.svg" alt="">
+  <div class="main-left" *ngIf="dataProduct[0].p_cate_id == 1">
+    <img class="image-address" src="assets/images/product/image-product-left-3.jpg" alt="image-service">
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service">
+    <div class="main-left-text">
+      <h5>ຄຸ້ມຄອງທ່ານ<br>ທຸກ Life Style</h5>
+      <p>ໃຫ້ຍິ້ມໄດ້ຕະຫຼອດເວລາ</p>
+    </div>
+  </div>
+  <div class="main-left" *ngIf="dataProduct[0].p_cate_id == 2">
+    <img class="image-address" src="assets/images/product/image-product-left-3.jpg" alt="image-service">
+    <img class="image-opacity" src="assets/images/image-address-hospital-background.svg" alt="image-service">
+    <div class="main-left-text">
+      <h5>ຜະລິດຕະພັນ</h5>
+      <p>ຄຸ້ມຄອງທ່ານ <br>ທຸກ Life Style<br>ໃຫ້ຍິ້ມໄດ້ຕະຫຼອດເວລາ</p>
+    </div>
+  </div>
+  <div class="main-right">
+    <div class="main-right-content">
+      <div class="list-nav">
+        <li><a routerLink="/">ໜ້າຫຼັກ</a></li>
+        <li><a>ຜະລິດຕະພັນ</a></li>
+        <li><a>{{categoryName}}</a></li>
+        <li><a>{{listMenuName}}</a></li>
+      </div>
+      <h2>{{listMenuName}}</h2>
+      <div class="content">
+        <div class="content-product">
+
+          <a *ngFor="let item of dataProduct" [routerLink]="['/product/product-detail',item.id]" class="product-card">
+            <div class="card">
+              <div class="card-header">
+                <img class="card-img-top" [src]="item.p_image" alt="Card image">
+              </div>
+              <div class="card-body">
+                <p class="card-text">{{item.p_name_la}}</p>
+                <p class="card-text">{{item.p_name_en}}</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-advert></app-advert>
